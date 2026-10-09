@@ -1457,3 +1457,60 @@ a {
     font-size: 16px;
   }
 }
+
+
+
+/* Readability improvements */
+
+.hero-description {
+  font-size: 16px;
+  line-height: 2;
+}
+
+.section-description {
+  font-size: 15px;
+  line-height: 1.95;
+}
+
+.agent-card p {
+  min-height: 66px;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.agent-card-action {
+  font-size: 12px;
+}
+
+.review-card p {
+  font-size: 13px;
+  line-height: 1.95;
+}
+
+.review-label {
+  font-size: 11px;
+}
+
+.footer-links a {
+  font-size: 13px;
+}
+
+@media (max-width: 560px) {
+  .hero-description,
+  .section-description {
+    font-size: 14px;
+  }
+
+  .agent-card p {
+    min-height: 80px;
+    font-size: 12px;
+  }
+
+  .agent-card-action {
+    font-size: 11px;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+  }
+}
