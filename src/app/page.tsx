@@ -8,7 +8,7 @@ import {
   MessageCircle,
   ShieldCheck,
   UserRound,
-  Users
+  Users,
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -109,7 +109,7 @@ export default function Home() {
             <div className="hero-content">
               <div className="hero-badge">
                 <span className="hero-dot" />
-                বাংলা এজেন্ট ডিরেক্টরি
+                Velki 200 Agent
               </div>
 
               <h1>
@@ -134,15 +134,14 @@ export default function Home() {
                   WhatsApp যোগাযোগ
                 </a>
 
-                <Link href="/master-agent-list" className="button button-secondary">
+                <Link
+                  href="/master-agent-list"
+                  className="button button-secondary hero-agent-list-button"
+                >
                   Agent List দেখুন
                   <ArrowDown size={17} />
                 </Link>
               </div>
-
-              <p className="hero-footnote">
-                তথ্য দেখুন · প্রাসঙ্গিক বিভাগ নির্বাচন করুন · প্রকাশিত বিবরণ যাচাই করুন
-              </p>
             </div>
 
             <div className="hero-visual" aria-hidden="true">
@@ -189,13 +188,7 @@ export default function Home() {
           <div className="container">
             <div className="section-heading">
               <p className="section-eyebrow">MASTER AGENT DIRECTORY</p>
-
               <h2 className="section-title">মাস্টার এজেন্ট লিস্ট</h2>
-
-              <p className="section-description">
-                প্রতিটি card-এ প্রোফাইলের নাম, reference ID এবং যোগাযোগের CTA দেখানো যাবে। প্রকৃত
-                তথ্য যাচাই করার পর ডিরেক্টরিটি প্রকাশ করুন।
-              </p>
             </div>
 
             <div className="agent-grid">
@@ -206,15 +199,18 @@ export default function Home() {
                   </div>
 
                   <span className="agent-code">{agent.code}</span>
-
                   <h3>{agent.name}</h3>
-
                   <p>প্রোফাইলের বিস্তারিত এবং অনুমোদিত যোগাযোগের তথ্য এখানে যুক্ত হবে।</p>
 
-                  <Link href="/master-agent-list" className="agent-card-action">
-                    বিস্তারিত দেখুন
-                    <ArrowRight size={15} />
-                  </Link>
+                  <a
+                    href={getWhatsAppLink(`আমি ${agent.code} সম্পর্কে তথ্য জানতে চাই।`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="agent-card-action"
+                  >
+                    যোগাযোগ করুন
+                    <MessageCircle size={15} />
+                  </a>
                 </article>
               ))}
             </div>
@@ -233,25 +229,32 @@ export default function Home() {
           <div className="container">
             <div className="section-heading">
               <p className="section-eyebrow">DIRECTORY CATEGORIES</p>
-
               <h2 className="section-title">অন্যান্য ক্যাটাগরি</h2>
-
               <p className="section-description">
                 প্রতিটি ক্যাটাগরির জন্য আলাদা page ও navigation রাখা হবে, যাতে ব্যবহারকারী সহজেই
                 প্রয়োজনীয় বিভাগ খুঁজে পান।
               </p>
             </div>
 
-            <div className="agent-grid">
+            <div className="agent-grid category-grid">
+              <article className="agent-card category-master-mobile">
+                <div className="agent-avatar">
+                  <UserRound size={22} />
+                </div>
+                <h3>মাস্টার এজেন্ট লিস্ট</h3>
+                <p>মাস্টার এজেন্ট ক্যাটাগরির তালিকা ও প্রকাশিত তথ্য।</p>
+                <Link href="/master-agent-list" className="agent-card-action">
+                  পেজ দেখুন
+                  <ArrowRight size={15} />
+                </Link>
+              </article>
+
               <article className="agent-card">
                 <div className="agent-avatar">
                   <Users size={22} />
                 </div>
-
                 <h3>সুপার এজেন্ট লিস্ট</h3>
-
                 <p>সংশ্লিষ্ট প্রোফাইলের তথ্য ও তালিকা।</p>
-
                 <Link href="/super-agent-list" className="agent-card-action">
                   পেজ দেখুন
                   <ArrowRight size={15} />
@@ -262,11 +265,8 @@ export default function Home() {
                 <div className="agent-avatar">
                   <BadgeCheck size={22} />
                 </div>
-
                 <h3>সাব অ্যাডমিন লিস্ট</h3>
-
                 <p>সংশ্লিষ্ট প্রোফাইলের তথ্য ও তালিকা।</p>
-
                 <Link href="/sub-admin-list" className="agent-card-action">
                   পেজ দেখুন
                   <ArrowRight size={15} />
@@ -277,11 +277,8 @@ export default function Home() {
                 <div className="agent-avatar">
                   <Headset size={22} />
                 </div>
-
                 <h3>কাস্টমার সার্ভিস</h3>
-
                 <p>যোগাযোগ ও সহায়তা সম্পর্কিত তথ্য।</p>
-
                 <Link href="/customer-services" className="agent-card-action">
                   পেজ দেখুন
                   <ArrowRight size={15} />
@@ -292,11 +289,8 @@ export default function Home() {
                 <div className="agent-avatar">
                   <BookOpen size={22} />
                 </div>
-
                 <h3>ব্লগ ও গাইড</h3>
-
                 <p>তথ্য, নির্দেশনা এবং প্রয়োজনীয় নিবন্ধ।</p>
-
                 <Link href="/blog" className="agent-card-action">
                   ব্লগ দেখুন
                   <ArrowRight size={15} />
@@ -307,11 +301,8 @@ export default function Home() {
                 <div className="agent-avatar">
                   <ShieldCheck size={22} />
                 </div>
-
                 <h3>তথ্য ও নিরাপত্তা</h3>
-
                 <p>তথ্য যাচাই ও গোপনীয়তা সম্পর্কিত নির্দেশনা।</p>
-
                 <Link href="/disclaimer" className="agent-card-action">
                   বিস্তারিত
                   <ArrowRight size={15} />
@@ -326,9 +317,7 @@ export default function Home() {
           <div className="container">
             <div className="section-heading">
               <p className="section-eyebrow">USER FEEDBACK</p>
-
               <h2 className="section-title">ব্যবহারকারীদের মতামত</h2>
-
               <p className="section-description">
                 এই অংশে প্রকৃত এবং প্রকাশের অনুমতি পাওয়া ব্যবহারকারীদের মতামত দেখানো যাবে।
               </p>
@@ -349,14 +338,11 @@ export default function Home() {
                         <div className="review-avatar">
                           <MessageCircle size={19} />
                         </div>
-
                         <div>
                           <strong>{review.title}</strong>
-
                           <span className="review-label">নমুনা কনটেন্ট</span>
                         </div>
                       </div>
-
                       <p>{review.text}</p>
                     </article>
                   ))}
@@ -371,13 +357,11 @@ export default function Home() {
           <div className="container">
             <div className="section-heading">
               <p className="section-eyebrow">INFORMATION & GUIDES</p>
-
               <h2 className="section-title">এজেন্ট ডিরেক্টরি সম্পর্কে বিস্তারিত</h2>
             </div>
 
             <article className="content-panel">
               <h3>মাস্টার এজেন্ট ও সুপার এজেন্ট লিস্ট</h3>
-
               <p>
                 একটি সুসংগঠিত agent directory-তে প্রতিটি ক্যাটাগরির তথ্য আলাদা করে উপস্থাপন করা
                 গুরুত্বপূর্ণ। মাস্টার এজেন্ট লিস্ট, সুপার এজেন্ট লিস্ট এবং সাব অ্যাডমিন লিস্টের জন্য
@@ -386,7 +370,6 @@ export default function Home() {
               </p>
 
               <h3>তথ্য যাচাই ও হালনাগাদ</h3>
-
               <p>
                 কোনো directory-তে যোগাযোগের বিবরণ প্রকাশ করার আগে সংশ্লিষ্ট ব্যক্তির অনুমতি, পরিচয়
                 এবং তথ্যের সঠিকতা যাচাই করা প্রয়োজন। পুরোনো, ভুল বা অসম্পূর্ণ তথ্য শনাক্ত হলে সেটি
@@ -394,7 +377,6 @@ export default function Home() {
               </p>
 
               <h3>ওয়েবসাইট ব্যবহার ও গোপনীয়তা</h3>
-
               <p>
                 ওয়েবসাইটের menu, mobile navigation এবং category links এমনভাবে সাজানো উচিত, যাতে
                 desktop ও mobile উভয় ডিভাইসেই সহজে ব্যবহার করা যায়। ব্যক্তিগত তথ্য শেয়ার করার আগে
@@ -409,9 +391,7 @@ export default function Home() {
           <div className="container">
             <div className="section-heading">
               <p className="section-eyebrow">FAQ</p>
-
               <h2 className="section-title">সচরাচর জিজ্ঞাসিত প্রশ্ন</h2>
-
               <p className="section-description">
                 ওয়েবসাইট ব্যবহার, ক্যাটাগরি এবং তথ্য সম্পর্কে সাধারণ কিছু প্রশ্নের উত্তর।
               </p>
@@ -421,7 +401,6 @@ export default function Home() {
               {faqs.map(faq => (
                 <details className="faq-item" key={faq.question}>
                   <summary>{faq.question}</summary>
-
                   <div className="faq-answer">{faq.answer}</div>
                 </details>
               ))}
@@ -435,9 +414,7 @@ export default function Home() {
             <div className="contact-panel">
               <div>
                 <p className="section-eyebrow">CUSTOMER SERVICES</p>
-
                 <h2>{SITE_NAME}</h2>
-
                 <p>
                   যোগাযোগের তথ্য, ওয়েবসাইট সম্পর্কিত প্রশ্ন এবং প্রয়োজনীয় সহায়তার জন্য যোগাযোগ পেজ
                   ব্যবহার করুন।
@@ -465,7 +442,6 @@ export default function Home() {
             <Link href="/" className="footer-brand">
               {SITE_NAME}
             </Link>
-
             <p className="footer-description">
               বাংলা ভাষায় তথ্য ও তালিকা উপস্থাপনের জন্য একটি responsive directory interface।
               প্রকাশিত তথ্যের যথার্থতা স্বাধীনভাবে যাচাই করুন।

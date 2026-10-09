@@ -2,7 +2,7 @@
 
 import { ArrowUpRight, Layers3, Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { NAV_ITEMS, SITE_NAME, getWhatsAppLink } from '@/lib/site-config';
 
@@ -13,11 +13,34 @@ export default function SiteHeader() {
     setMenuOpen(false);
   }
 
+  // Keep the page behind the mobile menu from scrolling while it is open.
+  useEffect(() => {
+    if (!menuOpen || !window.matchMedia('(max-width: 780px)').matches) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [menuOpen]);
+
   return (
     <header className="site-header">
       <div className="container header-inner">
         <Link href="/" className="brand" onClick={closeMenu} aria-label={`${SITE_NAME} হোম`}>
-          <span className="brand-mark">
+          <span className="brand-mark" aria-hidden="true">
             <Layers3 size={23} />
           </span>
 
