@@ -18,11 +18,25 @@ export const metadata: Metadata = {
 
   applicationName: 'velki200agent.com',
 
+  // ✅ Author (নতুন যোগ)
+  authors: [{ name: 'RAMIM MALIK', url: 'https://velki200agent.com' }],
+
+  // ✅ Robots (index, follow) — আগেই ছিল, আরেকটু বিস্তারিত
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
+  },
+
   alternates: {
     canonical: 'https://velki200agent.com/',
   },
-
-
 
   openGraph: {
     type: 'website',
@@ -32,9 +46,11 @@ export const metadata: Metadata = {
     description: 'এজেন্ট ডিরেক্টরি, প্রয়োজনীয় তথ্য এবং কাস্টমার সার্ভিস।',
   },
 
-  robots: {
-    index: true,
-    follow: true,
+  // ✅ Twitter Card (বোনাস — ভালো প্রিভিউর জন্য)
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Velki200 Agent',
+    description: 'এজেন্ট ডিরেক্টরি, প্রয়োজনীয় তথ্য এবং কাস্টমার সার্ভিস।',
   },
 };
 
