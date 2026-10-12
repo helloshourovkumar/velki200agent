@@ -16,11 +16,11 @@ export default function ContactPage() {
       title="যোগাযোগ করুন"
       description="ওয়েবসাইট সম্পর্কে প্রশ্ন, feedback অথবা তথ্য সংশোধনের অনুরোধ জানান।"
     >
-      <h3>ইমেইলের মাধ্যমে যোগাযোগ</h3>
-      <p>
-        এখানে ওয়েবসাইট পরিচালনাকারীর সক্রিয় ও অনুমোদিত support email প্রকাশ করো। প্রকাশের আগে নিচের
-        placeholder-টি নিজের প্রকৃত ইমেইল ঠিকানা দিয়ে পরিবর্তন করতে হবে।
-      </p>
+      <h3>হোয়াটসআপ এর মাধ্যমে যোগাযোগ</h3>
+      {/* <p>
+        এখানে ওয়েবসাইট পরিচালনাকারীর সক্রিয় ও অনুমোদিত support email প্রকাশ করো। প্রকাশের আগে নিচের
+        placeholder-টি নিজের প্রকৃত ইমেইল ঠিকানা দিয়ে পরিবর্তন করতে হবে।
+      </p> */}
 
       <div className="contact-method">
         <span className="contact-method-icon">
@@ -28,17 +28,17 @@ export default function ContactPage() {
         </span>
 
         <div>
-          <strong>ইমেইল সাপোর্ট</strong>
-          <p>contact@your-domain.com — এটি একটি placeholder।</p>
-          <a href="mailto:contact@your-domain.com">ইমেইল লিখুন</a>
+          <strong>হোয়াটসআপ সাপোর্ট</strong>
+          {/* <p>contact@your-domain.com — এটি একটি placeholder।</p> */}
+          <a href="https://wa.me/17602865079">হোয়াটসআপ</a>
         </div>
       </div>
-
+      {/*
       <h3>তথ্য সংশোধনের অনুরোধ</h3>
       <p>
         অনুরোধে সংশ্লিষ্ট পেজের ঠিকানা এবং কী তথ্য সংশোধন করা প্রয়োজন তা উল্লেখ করা যেতে পারে।
         ব্যক্তিগত বা সংবেদনশীল তথ্য অপ্রয়োজনে পাঠাবেন না।
-      </p>
+      </p> */}
 
       <h3>অন্যান্য পেজ</h3>
       <p>

@@ -18,6 +18,12 @@ export const metadata: Metadata = {
 
   applicationName: 'velki200agent.com',
 
+  alternates: {
+    canonical: 'https://velki200agent.com/',
+  },
+
+
+
   openGraph: {
     type: 'website',
     locale: 'bn_BD',
@@ -45,7 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="bn">
-      <body>
+      <body suppressHydrationWarning>
         <LoadingScreen />
         {children}
         <ScrollToTop />

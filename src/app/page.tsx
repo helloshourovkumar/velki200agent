@@ -14,15 +14,14 @@ import Link from 'next/link';
 
 import SiteHeader from '@/components/layout/site-header';
 
-import { FOOTER_LINKS, SITE_COPYRIGHT_YEAR, SITE_NAME, getWhatsAppLink } from '@/lib/site-config';
-
-// Demo content: replace with accurate, authorised information
-// before publishing the website.
-const masterAgents = Array.from({ length: 10 }, (_, index) => ({
-  id: index + 1,
-  code: `MA-${String(index + 1).padStart(2, '0')}`,
-  name: `মাস্টার এজেন্ট ${String(index + 1).padStart(2, '0')}`,
-}));
+import { MASTER_AGENTS } from '@/lib/master-agents';
+import {
+  FOOTER_LINKS,
+  SITE_COPYRIGHT_YEAR,
+  SITE_NAME,
+  getMasterAgentWhatsAppLink,
+  getWhatsAppLink,
+} from '@/lib/site-config';
 
 // These are placeholders for the review design, not genuine testimonials.
 // Publish only authentic reviews with permission.
@@ -107,11 +106,6 @@ export default function Home() {
         <section className="hero" id="home">
           <div className="container hero-grid">
             <div className="hero-content">
-              <div className="hero-badge">
-                <span className="hero-dot" />
-                Velki 200 Agent
-              </div>
-
               <h1>
                 এজেন্ট লিস্ট ও প্রয়োজনীয়
                 <br />
@@ -125,7 +119,7 @@ export default function Home() {
 
               <div className="hero-actions">
                 <a
-                  href={getWhatsAppLink('ওয়েবসাইট সম্পর্কে জানতে চাই।')}
+                  href={getWhatsAppLink('ইউজার একাউন্ট খুলতে চাই।')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="button button-primary"
@@ -187,12 +181,11 @@ export default function Home() {
         <section className="section" id="master-agents">
           <div className="container">
             <div className="section-heading">
-              <p className="section-eyebrow">MASTER AGENT DIRECTORY</p>
               <h2 className="section-title">মাস্টার এজেন্ট লিস্ট</h2>
             </div>
 
             <div className="agent-grid">
-              {masterAgents.map(agent => (
+              {MASTER_AGENTS.map((agent, index) => (
                 <article className="agent-card" key={agent.id}>
                   <div className="agent-avatar">
                     <UserRound size={22} />
@@ -200,10 +193,12 @@ export default function Home() {
 
                   <span className="agent-code">{agent.code}</span>
                   <h3>{agent.name}</h3>
-                  <p>প্রোফাইলের বিস্তারিত এবং অনুমোদিত যোগাযোগের তথ্য এখানে যুক্ত হবে।</p>
 
                   <a
-                    href={getWhatsAppLink(`আমি ${agent.code} সম্পর্কে তথ্য জানতে চাই।`)}
+                    href={getMasterAgentWhatsAppLink(
+                      index,
+                      `আমি ${agent.code} সম্পর্কে তথ্য জানতে চাই।`,
+                    )}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="agent-card-action"
@@ -230,10 +225,6 @@ export default function Home() {
             <div className="section-heading">
               <p className="section-eyebrow">DIRECTORY CATEGORIES</p>
               <h2 className="section-title">অন্যান্য ক্যাটাগরি</h2>
-              <p className="section-description">
-                প্রতিটি ক্যাটাগরির জন্য আলাদা page ও navigation রাখা হবে, যাতে ব্যবহারকারী সহজেই
-                প্রয়োজনীয় বিভাগ খুঁজে পান।
-              </p>
             </div>
 
             <div className="agent-grid category-grid">
