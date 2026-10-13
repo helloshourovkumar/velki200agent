@@ -1,6 +1,7 @@
 'use client';
 
-import { ArrowUpRight, Layers3, Menu, X } from 'lucide-react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -39,15 +40,20 @@ export default function SiteHeader() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Link href="/" className="brand" onClick={closeMenu} aria-label={`${SITE_NAME} হোম`}>
-          <span className="brand-mark" aria-hidden="true">
-            <Layers3 size={23} />
-          </span>
-
-          <span className="brand-copy">
-            <span className="brand-name">{SITE_NAME}</span>
-            <span className="brand-subtitle">এজেন্ট ডিরেক্টরি</span>
-          </span>
+        <Link
+          href="/"
+          className="brand"
+          onClick={closeMenu}
+          aria-label={`${SITE_NAME} হোম`}
+        >
+          <Image
+            src="/velki.png"
+            alt="Velki 200"
+            width={160}
+            height={50}
+            priority
+            className="brand-logo"
+          />
         </Link>
 
         <nav
@@ -56,7 +62,12 @@ export default function SiteHeader() {
           aria-label="প্রধান নেভিগেশন"
         >
           {NAV_ITEMS.map(item => (
-            <Link key={item.href} href={item.href} className="nav-link" onClick={closeMenu}>
+            <Link
+              key={item.href}
+              href={item.href}
+              className="nav-link"
+              onClick={closeMenu}
+            >
               {item.label}
             </Link>
           ))}

@@ -1,6 +1,6 @@
 // lib/site-config.ts
 
-export const SITE_NAME = 'velki200agent.com';
+export const SITE_NAME = 'Velki Agent List';
 export const SITE_URL = 'https://velki200agent.com';
 
 // Default WhatsApp number (used in header, footer, CTA sections)
