@@ -64,10 +64,7 @@ export default function SubAdminListPage() {
                     <h3>{admin.name}</h3>
 
                     <a
-                      href={getSubAdminWhatsAppLink(
-                        index,
-                        `আমি ${admin.code} সম্পর্কে তথ্য জানতে চাই।`,
-                      )}
+                      href={getSubAdminWhatsAppLink(index, `আমি ইউজার একাউন্ট খুলতে চাই।`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="agent-card-action"

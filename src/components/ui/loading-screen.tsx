@@ -1,6 +1,6 @@
 'use client';
 
-import { Layers3 } from 'lucide-react';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 export default function LoadingScreen() {
@@ -9,7 +9,7 @@ export default function LoadingScreen() {
   useEffect(() => {
     const timer = window.setTimeout(() => {
       setVisible(false);
-    }, 450);
+    }, 900);
 
     return () => window.clearTimeout(timer);
   }, []);
@@ -22,12 +22,16 @@ export default function LoadingScreen() {
     <div className="loading-screen" role="status" aria-label="লোড হচ্ছে">
       <div className="loading-brand">
         <div className="loading-logo">
-          <Layers3 size={30} strokeWidth={1.8} />
+          <Image
+            src="/logo.svg"
+            alt="Velki 200 Agent"
+            width={400}
+            height={400}
+            priority
+          />
         </div>
 
-        <p className="loading-name">velki200agent.com</p>
-
-        <p className="loading-message">আপনার জন্য প্রস্তুত হচ্ছে</p>
+        <p className="loading-message">লোডিং হচ্ছে...</p>
 
         <div className="loading-track">
           <span />

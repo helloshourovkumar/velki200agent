@@ -64,10 +64,7 @@ export default function SuperAgentListPage() {
                     <h3>{agent.name}</h3>
 
                     <a
-                      href={getSuperAgentWhatsAppLink(
-                        index,
-                        `আমি ${agent.code} সম্পর্কে তথ্য জানতে চাই।`,
-                      )}
+                      href={getSuperAgentWhatsAppLink(index, `আমি ইউজার একাউন্ট খুলতে চাই।`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="agent-card-action"

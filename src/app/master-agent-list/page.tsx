@@ -82,10 +82,7 @@ export default function MasterAgentListPage() {
                     <h3>{agent.name}</h3>
 
                     <a
-                      href={getMasterAgentWhatsAppLink(
-                        index,
-                        `আমি ${agent.code} সম্পর্কে তথ্য জানতে চাই।`,
-                      )}
+                      href={getMasterAgentWhatsAppLink(index, `আমি ইউজার একাউন্ট খুলতে চাই।`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="agent-card-action"
