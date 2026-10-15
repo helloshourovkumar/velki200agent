@@ -25,7 +25,12 @@ export const metadata: Metadata = {
   creator: 'RAMIM MALIK',
   publisher: 'Velki Agent List',
 
-  // ✅ Canonical যোগ করা হলো
+  // ✅ Google Search Console Verification
+  verification: {
+    google: 'MS1QSQ1aGXi2GI6izQ1cTxfmqwKRd7H_mswRwOkgo2Y',
+  },
+
+  // ✅ Canonical
   alternates: {
     canonical: SITE_URL,
   },
