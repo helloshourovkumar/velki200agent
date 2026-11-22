@@ -30,7 +30,7 @@ export default function ContactPage() {
         <div>
           <strong>হোয়াটসআপ সাপোর্ট</strong>
           {/* <p>contact@your-domain.com — এটি একটি placeholder।</p> */}
-          <a href="https://wa.me/17602865079">হোয়াটসআপ</a>
+          <a href="https://wa.me/117459 9722">হোয়াটসআপ</a>
         </div>
       </div>
       {/*
