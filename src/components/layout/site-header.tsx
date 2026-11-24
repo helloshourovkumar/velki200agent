@@ -40,19 +40,15 @@ export default function SiteHeader() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Link
-          href="/"
-          className="brand"
-          onClick={closeMenu}
-          aria-label={`${SITE_NAME} হোম`}
-        >
+        <Link href="/" className="brand" onClick={closeMenu} aria-label={`${SITE_NAME} হোম`}>
           <Image
             src="/velki.png"
             alt="Velki 200"
-            width={160}
-            height={50}
+            width={100}
+            height={40}
             priority
             className="brand-logo"
+            style={{ width: 'auto', height: 'auto' }}
           />
         </Link>
 
@@ -62,12 +58,7 @@ export default function SiteHeader() {
           aria-label="প্রধান নেভিগেশন"
         >
           {NAV_ITEMS.map(item => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="nav-link"
-              onClick={closeMenu}
-            >
+            <Link key={item.href} href={item.href} className="nav-link" onClick={closeMenu}>
               {item.label}
             </Link>
           ))}

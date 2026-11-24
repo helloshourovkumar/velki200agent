@@ -99,7 +99,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="bn">
+    <html lang="bn" data-scroll-behavior="smooth">
       <body suppressHydrationWarning>
         <LoadingScreen />
         {children}
