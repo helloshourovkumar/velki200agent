@@ -3,8 +3,8 @@
 export const SITE_NAME = 'Velki Agent List';
 export const SITE_URL = 'https://velki200agent.com';
 
-// Default WhatsApp number (used in header, footer, CTA sections)
-export const WHATSAPP_NUMBER = '0117459 9722';
+// Default WhatsApp number (used in header, footer, CTA sections) - Admin
+export const WHATSAPP_NUMBER = '447735868499'; // +44 7735 868499 (ID: 499)
 
 export function getWhatsAppLink(message?: string): string {
   const number = WHATSAPP_NUMBER;
@@ -16,7 +16,11 @@ export function getWhatsAppLink(message?: string): string {
 // ──────────────────────────────────────────────────────────
 // Master Agent WhatsApp numbers
 // ──────────────────────────────────────────────────────────
-export const MASTER_AGENT_WHATSAPP_NUMBERS = ['19125030483', '0117459 9722', '601174272363'] as const;
+export const MASTER_AGENT_WHATSAPP_NUMBERS = [
+  '447735868499', // +44 7735 868499 (ID: 499)
+  '27839955564',  // +27839955564 (ID: 564)
+  '19125030483',  // +1 912 503-0483 (ID: 483)
+] as const;
 
 export function getMasterAgentWhatsAppLink(
   index: number,
@@ -35,9 +39,9 @@ export function getMasterAgentWhatsAppLink(
 // Super Agent WhatsApp numbers
 // ──────────────────────────────────────────────────────────
 export const SUPER_AGENT_WHATSAPP_NUMBERS = [
-  '19125030483',
-  '0117459 9722',
-  '601174272363',
+  '447735868499', // +44 7735 868499 (ID: 499)
+  '27839955564',  // +27839955564 (ID: 564)
+  '19125030483',  // +1 912 503-0483 (ID: 483)
 ] as const;
 
 export function getSuperAgentWhatsAppLink(
@@ -56,7 +60,9 @@ export function getSuperAgentWhatsAppLink(
 // ──────────────────────────────────────────────────────────
 // Sub Admin WhatsApp numbers
 // ──────────────────────────────────────────────────────────
-export const SUB_ADMIN_WHATSAPP_NUMBERS = ['0117459 9722'] as const;
+export const SUB_ADMIN_WHATSAPP_NUMBERS = [
+  '447735868499', // +44 7735 868499 (ID: 499)
+] as const;
 
 export function getSubAdminWhatsAppLink(
   index: number,

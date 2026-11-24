@@ -8,9 +8,10 @@ import SiteHeader from '@/components/layout/site-header';
 
 import {
   FOOTER_LINKS,
+  getSubAdminWhatsAppLink,
   SITE_COPYRIGHT_YEAR,
   SITE_NAME,
-  getSubAdminWhatsAppLink,
+  SUB_ADMIN_WHATSAPP_NUMBERS, // নতুন ইমপোর্ট
 } from '@/lib/site-config';
 import { SUB_ADMINS } from '@/lib/sub-admins';
 
@@ -54,26 +55,35 @@ export default function SubAdminListPage() {
               </div>
             ) : (
               <div className="agent-grid">
-                {filteredAdmins.map((admin, index) => (
-                  <article className="agent-card" key={admin.id}>
-                    <div className="agent-avatar">
-                      <UserRound size={22} />
-                    </div>
+                {filteredAdmins.map((admin, index) => {
+                  // ১. ইন্ডেক্স অনুযায়ী ফোন নাম্বার বের করা
+                  const phoneNumber = SUB_ADMIN_WHATSAPP_NUMBERS[index % SUB_ADMIN_WHATSAPP_NUMBERS.length];
 
-                    <span className="agent-code">{admin.code}</span>
-                    <h3>{admin.name}</h3>
+                  // ২. ফোন নাম্বার থেকে শেষ ৩ ডিজিট নেওয়া
+                  const adminId = phoneNumber.replace(/\D/g, '').slice(-3);
 
-                    <a
-                      href={getSubAdminWhatsAppLink(index, `আমি ইউজার একাউন্ট খুলতে চাই।`)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="agent-card-action"
-                    >
-                      <MessageCircle size={15} />
-                      যোগাযোগ করুন
-                    </a>
-                  </article>
-                ))}
+                  return (
+                    <article className="agent-card" key={admin.id}>
+                      <div className="agent-avatar">
+                        <UserRound size={22} />
+                      </div>
+
+                      {/* ৩. admin.code এর জায়গায় adminId বসানো হয়েছে */}
+                      <span className="agent-code">ID: {adminId}</span>
+                      <h3>{admin.name}</h3>
+
+                      <a
+                        href={getSubAdminWhatsAppLink(index, `আমি ইউজার একাউন্ট খুলতে চাই।`)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="agent-card-action"
+                      >
+                        <MessageCircle size={15} />
+                        যোগাযোগ করুন
+                      </a>
+                    </article>
+                  );
+                })}
               </div>
             )}
           </div>

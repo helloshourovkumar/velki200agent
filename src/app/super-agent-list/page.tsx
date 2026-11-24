@@ -8,9 +8,10 @@ import SiteHeader from '@/components/layout/site-header';
 
 import {
   FOOTER_LINKS,
+  getSuperAgentWhatsAppLink,
   SITE_COPYRIGHT_YEAR,
   SITE_NAME,
-  getSuperAgentWhatsAppLink,
+  SUPER_AGENT_WHATSAPP_NUMBERS, // নতুন ইমপোর্ট
 } from '@/lib/site-config';
 import { SUPER_AGENTS } from '@/lib/super-agents';
 
@@ -54,26 +55,35 @@ export default function SuperAgentListPage() {
               </div>
             ) : (
               <div className="agent-grid">
-                {filteredAgents.map((agent, index) => (
-                  <article className="agent-card" key={agent.id}>
-                    <div className="agent-avatar">
-                      <UserRound size={22} />
-                    </div>
+                {filteredAgents.map((agent, index) => {
+                  // ১. ইন্ডেক্স অনুযায়ী ফোন নাম্বার বের করা
+                  const phoneNumber = SUPER_AGENT_WHATSAPP_NUMBERS[index % SUPER_AGENT_WHATSAPP_NUMBERS.length];
 
-                    <span className="agent-code">{agent.code}</span>
-                    <h3>{agent.name}</h3>
+                  // ২. ফোন নাম্বার থেকে শেষ ৩ ডিজিট নেওয়া
+                  const agentId = phoneNumber.replace(/\D/g, '').slice(-3);
 
-                    <a
-                      href={getSuperAgentWhatsAppLink(index, `আমি ইউজার একাউন্ট খুলতে চাই।`)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="agent-card-action"
-                    >
-                      <MessageCircle size={15} />
-                      যোগাযোগ করুন
-                    </a>
-                  </article>
-                ))}
+                  return (
+                    <article className="agent-card" key={agent.id}>
+                      <div className="agent-avatar">
+                        <UserRound size={22} />
+                      </div>
+
+                      {/* ৩. agent.code এর জায়গায় agentId বসানো হয়েছে */}
+                      <span className="agent-code">ID: {agentId}</span>
+                      <h3>{agent.name}</h3>
+
+                      <a
+                        href={getSuperAgentWhatsAppLink(index, `আমি ইউজার একাউন্ট খুলতে চাই।`)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="agent-card-action"
+                      >
+                        <MessageCircle size={15} />
+                        যোগাযোগ করুন
+                      </a>
+                    </article>
+                  );
+                })}
               </div>
             )}
           </div>

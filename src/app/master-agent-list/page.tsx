@@ -2,20 +2,21 @@
 
 import { MessageCircle, UserRound } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
 
 import SiteHeader from '@/components/layout/site-header';
 
 import { MASTER_AGENTS } from '@/lib/master-agents';
 import {
   FOOTER_LINKS,
+  getMasterAgentWhatsAppLink,
+  MASTER_AGENT_WHATSAPP_NUMBERS,
   SITE_COPYRIGHT_YEAR,
   SITE_NAME,
-  getMasterAgentWhatsAppLink,
 } from '@/lib/site-config';
 
 export default function MasterAgentListPage() {
-  const [query, setQuery] = useState('');
+  // search বন্ধ থাকায় setQuery ব্যবহার না করে শুধু query রাখা হলো (লিন্ট ওয়ার্নিং ফিক্স)
+  const query = '';
 
   const filteredAgents = MASTER_AGENTS.filter(agent => {
     const q = query.trim().toLowerCase();
@@ -50,17 +51,6 @@ export default function MasterAgentListPage() {
           <div className="container">
             {/* Search toolbar */}
             <div className="list-toolbar">
-              {/* <div className="search-input-wrap">
-                <Search size={18} className="search-icon" />
-                <input
-                  type="text"
-                  placeholder="নাম, কোড অথবা লিংকা দিয়ে খুঁজুন..."
-                  value={query}
-                  onChange={e => setQuery(e.target.value)}
-                  className="search-input"
-                />
-              </div> */}
-
               <div className="results-count">মোট {filteredAgents.length} টি ফলাফল</div>
             </div>
 
@@ -72,26 +62,35 @@ export default function MasterAgentListPage() {
               </div>
             ) : (
               <div className="agent-grid">
-                {filteredAgents.map((agent, index) => (
-                  <article className="agent-card" key={agent.id}>
-                    <div className="agent-avatar">
-                      <UserRound size={22} />
-                    </div>
+                {filteredAgents.map((agent, index) => {
+                  // ১. ইন্ডেক্স অনুযায়ী ফোন নাম্বার বের করা
+                  const phoneNumber = MASTER_AGENT_WHATSAPP_NUMBERS[index % MASTER_AGENT_WHATSAPP_NUMBERS.length];
 
-                    <span className="agent-code">{agent.code}</span>
-                    <h3>{agent.name}</h3>
+                  // ২. ফোন নাম্বার থেকে +, স্পেস, - বাদ দিয়ে শুধু শেষ ৩ ডিজিট নেওয়া
+                  const agentId = phoneNumber.replace(/\D/g, '').slice(-3);
 
-                    <a
-                      href={getMasterAgentWhatsAppLink(index, `আমি ইউজার একাউন্ট খুলতে চাই।`)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="agent-card-action"
-                    >
-                      <MessageCircle size={15} />
-                      যোগাযোগ করুন
-                    </a>
-                  </article>
-                ))}
+                  return (
+                    <article className="agent-card" key={agent.id}>
+                      <div className="agent-avatar">
+                        <UserRound size={22} />
+                      </div>
+
+                      {/* ৩. এখানে agent.code এর জায়গায় agentId বসানো হয়েছে */}
+                      <span className="agent-code">ID: {agentId}</span>
+                      <h3>{agent.name}</h3>
+
+                      <a
+                        href={getMasterAgentWhatsAppLink(index, `আমি ইউজার একাউন্ট খুলতে চাই।`)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="agent-card-action"
+                      >
+                        <MessageCircle size={15} />
+                        যোগাযোগ করুন
+                      </a>
+                    </article>
+                  );
+                })}
               </div>
             )}
           </div>
