@@ -1,6 +1,5 @@
-'use client';
-
-import { ArrowRight, MessageCircle, UserRound } from 'lucide-react'; // ArrowRight ইমপোর্ট করা হয়েছে
+import { ArrowRight, MessageCircle, UserRound } from 'lucide-react';
+import { Metadata } from 'next';
 import Link from 'next/link';
 
 import SiteHeader from '@/components/layout/site-header';
@@ -13,6 +12,15 @@ import {
   SITE_COPYRIGHT_YEAR,
   SITE_NAME,
 } from '@/lib/site-config';
+
+// Canonical URL এবং SEO মেটাডেটা
+export const metadata: Metadata = {
+  title: 'Velki Master Agent List Bangladesh 2026 | Velki200Agent',
+  description: 'Explore the updated Velki Master Agent List in Bangladesh. Review agent identification details, contact information, and verification steps.',
+  alternates: {
+    canonical: 'https://velki200agent.com/master-agent-list',
+  },
+};
 
 // SEO FAQ Data for Master Agent Page
 const masterFaqs = [
@@ -51,17 +59,8 @@ const masterFaqs = [
 ];
 
 export default function MasterAgentListPage() {
-  // search বন্ধ থাকায় setQuery ব্যবহার না করে শুধু query রাখা হলো (লিন্ট ওয়ার্নিং ফিক্স)
-  const query = '';
-
-  const filteredAgents = MASTER_AGENTS.filter(agent => {
-    const q = query.trim().toLowerCase();
-    if (!q) return true;
-    return (
-      agent.name.toLowerCase().includes(q) ||
-      agent.code.toLowerCase().includes(q)
-    );
-  });
+  // যেহেতু সার্চ বন্ধ, তাই সরাসরি MASTER_AGENTS ব্যবহার করা হলো
+  const filteredAgents = MASTER_AGENTS;
 
   return (
     <>
@@ -77,6 +76,7 @@ export default function MasterAgentListPage() {
               <span>মাস্টার এজেন্ট লিস্ট</span>
             </nav>
 
+            {/* একমাত্র H1 ট্যাগ */}
             <h1 className="page-title text-3xl text-bold">মাস্টার এজেন্ট লিস্ট বাংলাদেশ ২০২৬</h1>
           </div>
         </section>
@@ -127,7 +127,7 @@ export default function MasterAgentListPage() {
           </div>
         </section>
 
-        {/* FULL SEO CONTENT SECTION (WITH INTERNAL LINKS) */}
+        {/* FULL SEO CONTENT SECTION (WITH EXTENSIVE INTERNAL LINKS) */}
         <section className="section" id="seo-content">
           <div className="container">
             <div className="section-heading">
@@ -138,21 +138,21 @@ export default function MasterAgentListPage() {
             <article className="content-panel">
               <h3>Welcome to Velki200Agent</h3>
               <p>
-                Welcome to Velki200Agent, an online information directory designed to help visitors explore the Velki Master Agent List in Bangladesh. This page brings together master agent category information in an organized format so visitors can understand available listings, review identification details and find relevant contact information where provided.
+                Welcome to <Link href="/" className="text-teal-400 font-medium hover:underline">Velki200Agent</Link>, an online information directory designed to help visitors explore the Velki Master Agent List in Bangladesh. This page brings together master agent category information in an organized format so visitors can understand available listings, review identification details and find relevant contact information where provided.
               </p>
               <p>
                 Finding information about a master agent should involve more than simply looking at a name or phone number. Visitors should also consider whether the listing is complete, whether its contact details are consistent and whether the information can be independently confirmed.
               </p>
               <p>
-                Our goal is to make agent-related information easier to navigate through clear categories, helpful guides and accessible directory resources.
+                Our goal is to make agent-related information easier to navigate through clear categories, helpful guides and accessible <Link href="/" className="text-teal-400 font-medium hover:underline">directory resources</Link>.
               </p>
 
               <h3>What Is a Velki Master Agent?</h3>
               <p>
-                A Velki Master Agent is a term used in the agent category structure associated with Velki-related services. The role, responsibilities and authorization of any individual should not be assumed from a directory label alone.
+                A <Link href="/master-agent-list" className="text-teal-400 font-medium hover:underline">Velki Master Agent</Link> is a term used in the agent category structure associated with <Link href="/" className="text-teal-400 font-medium hover:underline">Velki-related services</Link>. The role, responsibilities and authorization of any individual should not be assumed from a directory label alone.
               </p>
               <p>
-                Before relying on information about a particular master agent, visitors should check the available identification details and seek confirmation through an appropriate independent source.
+                Before relying on information about a particular master agent, visitors should check the available identification details and seek confirmation through an appropriate independent source. You can also read our <Link href="/disclaimer" className="text-teal-400 font-medium hover:underline">Disclaimer</Link> for more clarity.
               </p>
 
               <h3>Explore the Velki Master Agent List</h3>
@@ -177,7 +177,7 @@ export default function MasterAgentListPage() {
 
               <h3>Browse Master Agent Listings</h3>
               <p>
-                Use the directory to review the available Velki Master Agent information. Read each listing carefully and compare the details provided before making contact.
+                Use the directory to review the available Velki Master Agent information. Read each listing carefully and compare the details provided before making contact. You can also explore our <Link href="/sub-admin-list" className="text-teal-400 font-medium hover:underline">Sub Admin List</Link> and <Link href="/super-agent-list" className="text-teal-400 font-medium hover:underline">Super Agent List</Link>.
               </p>
 
               <h3>Velki Master Agent Number and Contact Information</h3>
@@ -189,7 +189,7 @@ export default function MasterAgentListPage() {
                 <li>Check whether the number is displayed consistently across the relevant information sources.</li>
                 <li>Confirm that the contact belongs to the person or organization described in the listing.</li>
                 <li>Be careful with numbers copied from outdated posts or unrelated websites.</li>
-                <li>Avoid sharing passwords, verification codes or sensitive account information.</li>
+                <li>Avoid sharing passwords, verification codes or sensitive account information. Read our <Link href="/privacy-policy" className="text-teal-400 font-medium hover:underline">Privacy Policy</Link>.</li>
                 <li>Do not rely on a phone number as the only evidence of an agent's identity.</li>
               </ul>
               <p>
@@ -218,13 +218,13 @@ export default function MasterAgentListPage() {
 
               <h3>Master Agent vs Super Agent: Understanding the Categories</h3>
               <p>
-                Master Agent and Super Agent are separate category terms used in agent directories. Visitors should review the category label and the information supplied with each listing rather than assuming that the two terms describe identical roles.
+                <Link href="/master-agent-list" className="text-teal-400 font-medium hover:underline">Master Agent</Link> and <Link href="/super-agent-list" className="text-teal-400 font-medium hover:underline">Super Agent</Link> are separate category terms used in agent directories. Visitors should review the category label and the information supplied with each listing rather than assuming that the two terms describe identical roles.
               </p>
               <p>
                 If you are looking for the other category, visit the <Link href="/super-agent-list" className="text-teal-400 font-medium hover:underline">Velki Super Agent List page</Link> to explore its available information.
               </p>
               <p>
-                Understanding the category structure can help visitors navigate the directory more efficiently and locate the type of information they are looking for.
+                Understanding the category structure can help visitors navigate the directory more efficiently and locate the type of information they are looking for. For support, visit our <Link href="/customer-services" className="text-teal-400 font-medium hover:underline">Customer Services</Link> page.
               </p>
 
               <h3>Why Explore Velki200Agent?</h3>
@@ -233,16 +233,16 @@ export default function MasterAgentListPage() {
               </p>
               <ul>
                 <li>
-                  <strong>Organized Agent Categories:</strong> Separate category pages make it easier to browse master agent and super agent information without mixing different listing types.
+                  <strong>Organized Agent Categories:</strong> Separate category pages make it easier to browse <Link href="/master-agent-list" className="text-teal-400 font-medium hover:underline">master agent</Link> and <Link href="/super-agent-list" className="text-teal-400 font-medium hover:underline">super agent</Link> information without mixing different listing types.
                 </li>
                 <li>
-                  <strong>Easy Navigation:</strong> Clear headings, category links and descriptive information help visitors move between relevant directory pages.
+                  <strong>Easy Navigation:</strong> Clear headings, category links and descriptive information help visitors move between relevant directory pages. Go back to <Link href="/" className="text-teal-400 font-medium hover:underline">Home</Link>.
                 </li>
                 <li>
-                  <strong>Helpful Information Guides:</strong> Visitors can explore educational resources about agent identification, contact details, information accuracy and online privacy.
+                  <strong>Helpful Information Guides:</strong> Visitors can explore educational resources about agent identification, contact details, information accuracy and online privacy on our <Link href="/blog" className="text-teal-400 font-medium hover:underline">Blog</Link>.
                 </li>
                 <li>
-                  <strong>Listing Updates and Corrections:</strong> Directory information can change over time. Where an update or correction process is available, visitors should use the website's contact channel to report incomplete or potentially outdated information.
+                  <strong>Listing Updates and Corrections:</strong> Directory information can change over time. Where an update or correction process is available, visitors should use the <Link href="/contact" className="text-teal-400 font-medium hover:underline">website's contact channel</Link> to report incomplete or potentially outdated information.
                 </li>
               </ul>
 
@@ -250,6 +250,7 @@ export default function MasterAgentListPage() {
               <p>The following resources can help visitors understand the directory and review agent-related information:</p>
               <ul>
                 <li><strong><Link href="/super-agent-list" className="text-teal-400 font-medium hover:underline">Velki Super Agent List</Link>:</strong> Explore the separate super agent category.</li>
+                <li><strong><Link href="/sub-admin-list" className="text-teal-400 font-medium hover:underline">Velki Sub Admin List</Link>:</strong> Explore the sub admin category.</li>
                 <li><strong>Velki Agent Verification Guide:</strong> Learn how to review identification and contact details.</li>
                 <li><strong>Velki Agent Information Guide:</strong> Understand directory terminology and listing information.</li>
                 <li><strong><Link href="/contact" className="text-teal-400 font-medium hover:underline">Contact Page</Link>:</strong> Find the appropriate way to send a question or report a listing correction.</li>
@@ -257,7 +258,7 @@ export default function MasterAgentListPage() {
               </ul>
             </article>
 
-            {/* INTERNAL LINKS SECTION (Bonus for easy navigation) */}
+            {/* INTERNAL LINKS SECTION */}
             <div className="mt-12 p-6 bg-[#0f172a] rounded-xl border border-gray-800">
               <h4 className="text-xl font-semibold text-white mb-4">Explore Other Directory Categories</h4>
               <div className="flex flex-wrap gap-6">
@@ -306,7 +307,7 @@ export default function MasterAgentListPage() {
                 Finding useful agent information starts with clear listings, understandable categories and careful review. Velki200Agent provides a dedicated place to explore the <Link href="/" className="text-teal-400 font-medium hover:underline">Velki Agent List Bangladesh</Link>, understand available contact records and access helpful information resources.
               </p>
               <p>
-                Browse the available master agent listings, review the details carefully and independently confirm important information before relying on any listing.
+                Browse the available master agent listings, review the details carefully and independently confirm important information before relying on any listing. You can also check the <Link href="/super-agent-list" className="text-teal-400 font-medium hover:underline">Super Agent List</Link> and <Link href="/sub-admin-list" className="text-teal-400 font-medium hover:underline">Sub Admin List</Link>.
               </p>
             </div>
           </div>

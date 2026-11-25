@@ -30,10 +30,7 @@ export const metadata: Metadata = {
     google: 'MS1QSQ1aGXi2GI6izQ1cTxfmqwKRd7H_mswRwOkgo2Y',
   },
 
-  // ✅ Canonical
-  alternates: {
-    canonical: SITE_URL,
-  },
+
 
   // ✅ Favicon ও অ্যাপ আইকন
   icons: {

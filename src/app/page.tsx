@@ -10,6 +10,7 @@ import {
   UserRound,
   Users,
 } from 'lucide-react';
+import { Metadata } from 'next'; // Canonical Link-এর জন্য ইমপোর্ট
 import Link from 'next/link';
 
 import SiteHeader from '@/components/layout/site-header';
@@ -22,6 +23,15 @@ import {
   getMasterAgentWhatsAppLink,
   getWhatsAppLink,
 } from '@/lib/site-config';
+
+// Canonical URL এবং SEO মেটাডেটা
+export const metadata: Metadata = {
+  title: 'Velki Agent List Bangladesh 2026 | Updated Master & Super Agent Directory',
+  description: 'Explore the latest Velki Agent List in Bangladesh. Find Master Agent, Super Agent, and Sub Admin information, contact details, and verification guides.',
+  alternates: {
+    canonical: 'https://velki200agent.com/',
+  },
+};
 
 // Real user feedback
 const reviews = [
@@ -47,7 +57,6 @@ const reviews = [
   { id: 20, name: 'রাশেদুল ইসলাম', text: 'Velki200 Agent-এর ওপর সম্পূর্ণ ভরসা রাখা যায়।' },
 ];
 
-// Complete English SEO FAQ (All 10 from the text file)
 const seoFaqs = [
   {
     question: 'What Is a Velki Agent List?',
@@ -101,6 +110,7 @@ export default function Home() {
         <section className="hero" id="home">
           <div className="container hero-grid">
             <div className="hero-content">
+              {/* H1 ট্যাগ শুধু এখানেই আছে */}
               <h1>
                 এজেন্ট লিস্ট ও প্রয়োজনীয়
                 <br />
@@ -336,7 +346,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FULL SEO CONTENT WITH INTERNAL LINKS */}
+        {/* SEO CONTENT SECTION WITH EXTENSIVE INTERNAL LINKS */}
         <section className="section" id="seo-content">
           <div className="container">
             <div className="section-heading">
@@ -347,13 +357,13 @@ export default function Home() {
             <article className="content-panel">
               <h3>Welcome to Velki200Agent</h3>
               <p>
-                Welcome to Velki200Agent, an online directory created to organize Velki agent information and provide helpful resources for visitors in Bangladesh. Our website focuses on agent categories, available contact information, directory listings, and educational guides to make information easier to explore.
+                Welcome to <Link href="/" className="text-teal-400 font-medium hover:underline">Velki200Agent</Link>, an online directory created to organize Velki agent information and provide helpful resources for visitors in Bangladesh. Our website focuses on agent categories, available contact information, directory listings, and educational guides to make information easier to explore.
               </p>
               <p>
                 Finding relevant agent information online can sometimes be confusing. Different websites may display different names, contact numbers, categories, and updates. Velki200Agent aims to simplify this process by bringing relevant directory information together in a structured and accessible format.
               </p>
               <p>
-                Whether you are looking for a <Link href="/" className="text-teal-400 font-medium hover:underline">Velki Agent List</Link>, exploring the <Link href="/master-agent-list" className="text-teal-400 font-medium hover:underline">Velki Master Agent List</Link>, or researching <Link href="/super-agent-list" className="text-teal-400 font-medium hover:underline">Super Agent categories</Link>, our website provides organized sections to help you understand the available information.
+                Whether you are looking for a <Link href="/" className="text-teal-400 font-medium hover:underline">Velki Agent List</Link>, exploring the <Link href="/master-agent-list" className="text-teal-400 font-medium hover:underline">Velki Master Agent List</Link>, or researching <Link href="/super-agent-list" className="text-teal-400 font-medium hover:underline">Super Agent categories</Link>, our website provides organized sections to help you understand the available information. You can also check the <Link href="/sub-admin-list" className="text-teal-400 font-medium hover:underline">Sub Admin List</Link> for more details.
               </p>
               <p>
                 Our goal is to maintain a user-friendly directory where visitors can browse agent-related information, explore helpful articles, and learn how to review online listings responsibly.
@@ -386,6 +396,7 @@ export default function Home() {
                 <li>Agent category information</li>
                 <li><Link href="/master-agent-list" className="text-teal-400 font-medium hover:underline">Master Agent listings</Link></li>
                 <li><Link href="/super-agent-list" className="text-teal-400 font-medium hover:underline">Super Agent listings</Link></li>
+                <li><Link href="/sub-admin-list" className="text-teal-400 font-medium hover:underline">Sub Admin listings</Link></li>
                 <li>Available agent contact details</li>
                 <li>Agent identification information</li>
                 <li>Directory updates and corrections</li>
@@ -407,7 +418,7 @@ export default function Home() {
 
               <h3>How to Navigate the Directory</h3>
               <p>
-                Start with the main <Link href="/" className="text-teal-400 font-medium hover:underline">Velki Agent List</Link> section and select the category relevant to your search. Review the available information carefully and check whether the displayed details have been updated recently.
+                Start with the main <Link href="/" className="text-teal-400 font-medium hover:underline">Velki Agent List</Link> section and select the category relevant to your search. Review the available information carefully and check whether the displayed details have been updated recently. If you need help, visit our <Link href="/customer-services" className="text-teal-400 font-medium hover:underline">Customer Services</Link> page.
               </p>
 
               <h3>Velki Master Agent List – Bangladesh</h3>
@@ -445,7 +456,7 @@ export default function Home() {
                 When exploring a Master Agent listing, compare the displayed details, look for inconsistencies, and review any available update information.
               </p>
               <p>
-                If information is incomplete or appears outdated, seek independent confirmation before taking further action.
+                If information is incomplete or appears outdated, seek independent confirmation before taking further action. You can also read our <Link href="/disclaimer" className="text-teal-400 font-medium hover:underline">Disclaimer</Link> for clarity.
               </p>
 
               <h3>Velki Super Agent List – Updated Directory Information</h3>
@@ -476,7 +487,7 @@ export default function Home() {
                 <li>Check whether contact details are complete.</li>
                 <li>Look for the latest available update date.</li>
                 <li>Compare information with appropriate independent sources.</li>
-                <li>Avoid sharing confidential information with unverified contacts.</li>
+                <li>Avoid sharing confidential information with unverified contacts. Read our <Link href="/privacy-policy" className="text-teal-400 font-medium hover:underline">Privacy Policy</Link>.</li>
               </ul>
 
               <h3>Velki Agent Contact Information – Numbers and Directory Details</h3>
@@ -570,9 +581,9 @@ export default function Home() {
                 Our website is designed around several useful features that support easier information discovery.
               </p>
               <ul>
-                <li><strong>Organized Agent Categories:</strong> Dedicated sections for Master Agent and Super Agent information help visitors navigate relevant directory categories.</li>
+                <li><strong>Organized Agent Categories:</strong> Dedicated sections for <Link href="/master-agent-list" className="text-teal-400 font-medium hover:underline">Master Agent</Link> and <Link href="/super-agent-list" className="text-teal-400 font-medium hover:underline">Super Agent</Link> information help visitors navigate relevant directory categories.</li>
                 <li><strong>Easy Website Navigation:</strong> A clear page structure makes it easier to explore different listings and educational resources without unnecessary steps.</li>
-                <li><strong>Helpful Educational Resources:</strong> Our guides cover agent terminology, directory navigation, contact information, and practical methods for reviewing online listings.</li>
+                <li><strong>Helpful Educational Resources:</strong> Our guides cover agent terminology, directory navigation, contact information, and practical methods for reviewing online listings. Visit our <Link href="/blog" className="text-teal-400 font-medium hover:underline">Blog</Link> for more.</li>
                 <li><strong>Directory Updates and Corrections:</strong> Directory information may change over time. Reviewing available records and correcting outdated details are important parts of maintaining a useful information resource.</li>
                 <li><strong>Visitor-Focused Information:</strong> We aim to present information in straightforward English so visitors can understand the directory structure and find relevant resources more easily.</li>
               </ul>
@@ -624,10 +635,10 @@ export default function Home() {
                 Finding relevant agent information should be straightforward. Velki200Agent brings together directory categories, available agent details, and educational resources in one organized online destination.
               </p>
               <p>
-                Explore the <Link href="/" className="text-teal-400 font-medium hover:underline">Velki Agent List Bangladesh</Link>, browse the <Link href="/master-agent-list" className="text-teal-400 font-medium hover:underline">Velki Master Agent List</Link>, and discover the <Link href="/super-agent-list" className="text-teal-400 font-medium hover:underline">Velki Super Agent List</Link> to understand how different directory categories are organized.
+                Explore the <Link href="/" className="text-teal-400 font-medium hover:underline">Velki Agent List Bangladesh</Link>, browse the <Link href="/master-agent-list" className="text-teal-400 font-medium hover:underline">Velki Master Agent List</Link>, and discover the <Link href="/super-agent-list" className="text-teal-400 font-medium hover:underline">Velki Super Agent List</Link> to understand how different directory categories are organized. You can also explore the <Link href="/sub-admin-list" className="text-teal-400 font-medium hover:underline">Sub Admin List</Link> for related information.
               </p>
               <p>
-                Our focus is on clear information, accessible navigation, and useful educational resources.
+                Our focus is on clear information, accessible navigation, and useful educational resources. For any questions, visit our <Link href="/contact" className="text-teal-400 font-medium hover:underline">Contact Page</Link> or learn more <Link href="/about" className="text-teal-400 font-medium hover:underline">About Us</Link>.
               </p>
             </div>
           </div>

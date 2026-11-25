@@ -1,8 +1,6 @@
-'use client';
-
-import { ArrowRight, MessageCircle, UserRound } from 'lucide-react'; // ArrowRight ইমপোর্ট করা হয়েছে
+import { ArrowRight, MessageCircle, UserRound } from 'lucide-react';
+import { Metadata } from 'next'; // মেটাডেটার জন্য ইমপোর্ট
 import Link from 'next/link';
-import { useState } from 'react';
 
 import SiteHeader from '@/components/layout/site-header';
 
@@ -14,6 +12,15 @@ import {
   SUB_ADMIN_WHATSAPP_NUMBERS,
 } from '@/lib/site-config';
 import { SUB_ADMINS } from '@/lib/sub-admins';
+
+// ১. ক্যানোনিক্যাল লিংক এবং SEO মেটাডেটা
+export const metadata: Metadata = {
+  title: 'Velki Sub Admin Agent List Bangladesh 2026 | Velki200Agent',
+  description: 'Explore the updated Velki Sub Admin Agent List in Bangladesh. Review agent identification details, contact information, and verification steps.',
+  alternates: {
+    canonical: 'https://velki200agent.com/sub-admin-list',
+  },
+};
 
 // SEO FAQ Data for Sub Admin Page (All 14 Questions)
 const subAdminFaqs = [
@@ -76,16 +83,8 @@ const subAdminFaqs = [
 ];
 
 export default function SubAdminListPage() {
-  const [query] = useState('');
-
-  const filteredAdmins = SUB_ADMINS.filter(admin => {
-    const q = query.trim().toLowerCase();
-    if (!q) return true;
-    return (
-      admin.name.toLowerCase().includes(q) ||
-      admin.code.toLowerCase().includes(q)
-    );
-  });
+  // যেহেতু সার্চ অপশন বন্ধ, তাই সরাসরি SUB_ADMINS ব্যবহার করা হলো
+  const filteredAdmins = SUB_ADMINS;
 
   return (
     <>
@@ -101,6 +100,7 @@ export default function SubAdminListPage() {
               <span>সাব অ্যাডমিন লিস্ট</span>
             </nav>
 
+            {/* ২. শুধুমাত্র একটি H1 ট্যাগ */}
             <h1 className="page-title text-3xl">সাব অ্যাডমিন লিস্ট বাংলাদেশ ২০২৬</h1>
           </div>
         </section>
@@ -145,7 +145,7 @@ export default function SubAdminListPage() {
           </div>
         </section>
 
-        {/* FULL SEO CONTENT SECTION (WITH INTERNAL LINKS) */}
+        {/* ৩. FULL SEO CONTENT SECTION (WITH EXTENSIVE INTERNAL LINKS) */}
         <section className="section" id="seo-content">
           <div className="container">
             <div className="section-heading">
@@ -156,7 +156,7 @@ export default function SubAdminListPage() {
             <article className="content-panel">
               <h3>Welcome to the Velki Sub Admin Directory</h3>
               <p>
-                Welcome to Velki200Agent, an independent online directory designed to organize Velki-related agent information in Bangladesh. This page focuses on the Velki Sub Admin Agent List, helping visitors understand the Sub Admin category, explore available listing details and review relevant contact information where provided.
+                Welcome to <Link href="/" className="text-teal-400 font-medium hover:underline">Velki200Agent</Link>, an independent online directory designed to organize Velki-related agent information in Bangladesh. This page focuses on the Velki Sub Admin Agent List, helping visitors understand the Sub Admin category, explore available listing details and review relevant contact information where provided.
               </p>
               <p>
                 When searching for Sub Admin information, it is important to look beyond a name or phone number. Visitors should understand the category, review available identification details and check whether the information is complete and current.
@@ -175,10 +175,10 @@ export default function SubAdminListPage() {
 
               <h3>What Is a Velki Sub Admin Agent?</h3>
               <p>
-                A Velki Sub Admin Agent is a category term used in Velki-related agent information directories. The exact responsibilities, authority and relationship of a Sub Admin to a service provider should be confirmed through reliable information from the relevant organization.
+                A Velki Sub Admin Agent is a category term used in Velki-related <Link href="/" className="text-teal-400 font-medium hover:underline">agent information directories</Link>. The exact responsibilities, authority and relationship of a Sub Admin to a service provider should be confirmed through reliable information from the relevant organization.
               </p>
               <p>
-                The category name alone does not prove that an individual has official authorization or a particular administrative role. Visitors should review the available information and seek independent confirmation before relying on a listing.
+                The category name alone does not prove that an individual has official authorization or a particular administrative role. Visitors should review the available information and seek independent confirmation before relying on a listing. You can also read our <Link href="/disclaimer" className="text-teal-400 font-medium hover:underline">Disclaimer</Link> for more clarity.
               </p>
 
               <h3>Browse Available Sub Admin Listings</h3>
@@ -314,9 +314,9 @@ export default function SubAdminListPage() {
               <ul>
                 <li><strong>Organized Agent Categories:</strong> Separate Sub Admin, Master Agent and Super Agent pages help visitors find category-specific information without mixing different listing types.</li>
                 <li><strong>Clear Information Structure:</strong> Descriptive headings and consistent listing fields make it easier to understand what information is available for each record.</li>
-                <li><strong>Helpful Verification Guides:</strong> Educational resources about identification details, contact consistency and information accuracy help visitors review directory records more carefully.</li>
+                <li><strong>Helpful Verification Guides:</strong> Educational resources about identification details, contact consistency and information accuracy help visitors review directory records more carefully. Visit our <Link href="/blog" className="text-teal-400 font-medium hover:underline">Blog</Link> for more guides.</li>
                 <li><strong>Listing Updates and Corrections:</strong> Directory records may change over time. Where a correction process is available, visitors can contact the website to report outdated or incomplete information.</li>
-                <li><strong>Accessible Website Navigation:</strong> Clear page sections, relevant internal links and a mobile-friendly layout can make the directory easier to use across different devices.</li>
+                <li><strong>Accessible Website Navigation:</strong> Clear page sections, relevant internal links and a mobile-friendly layout can make the directory easier to use across different devices. Go back to <Link href="/" className="text-teal-400 font-medium hover:underline">Home</Link>.</li>
               </ul>
 
               <h3>Reporting Incorrect or Outdated Sub Admin Information</h3>
@@ -331,7 +331,7 @@ export default function SubAdminListPage() {
                 <li>A reliable supporting source, if available.</li>
               </ul>
               <p>
-                Do not include passwords, private verification codes or unnecessary personal documents. Submitted corrections should be reviewed before a directory record is changed. Reporting an issue does not automatically establish that the information is incorrect or that a replacement detail is accurate.
+                Do not include passwords, private verification codes or unnecessary personal documents. Submitted corrections should be reviewed before a directory record is changed. Reporting an issue does not automatically establish that the information is incorrect or that a replacement detail is accurate. You can reach out via our <Link href="/contact" className="text-teal-400 font-medium hover:underline">Contact Page</Link>.
               </p>
 
               <h3>Velki Agent Guides and Helpful Resources</h3>
@@ -344,7 +344,6 @@ export default function SubAdminListPage() {
                 <li><strong>Velki Agent Information Guide:</strong> Understand common agent directory terms.</li>
                 <li><strong>Online Privacy Guide:</strong> Learn practical ways to protect personal information.</li>
                 <li><strong><Link href="/about" className="text-teal-400 font-medium hover:underline">About Velki200Agent</Link>:</strong> Understand the purpose and scope of the directory.</li>
-                <li><strong><Link href="/contact" className="text-teal-400 font-medium hover:underline">Contact Page</Link>:</strong> Find the appropriate channel for questions and listing corrections.</li>
               </ul>
             </article>
 

@@ -1,8 +1,6 @@
-'use client';
-
 import { ArrowRight, MessageCircle, UserRound } from 'lucide-react';
+import { Metadata } from 'next'; // মেটাডেটার জন্য ইমপোর্ট
 import Link from 'next/link';
-import { useState } from 'react';
 
 import SiteHeader from '@/components/layout/site-header';
 
@@ -14,6 +12,15 @@ import {
   SUPER_AGENT_WHATSAPP_NUMBERS,
 } from '@/lib/site-config';
 import { SUPER_AGENTS } from '@/lib/super-agents';
+
+// ১. ক্যানোনিক্যাল লিংক এবং SEO মেটাডেটা
+export const metadata: Metadata = {
+  title: 'Velki Super Agent List Bangladesh 2026 | Velki200Agent',
+  description: 'Explore the updated Velki Super Agent List in Bangladesh. Review agent identification details, contact information, and verification steps.',
+  alternates: {
+    canonical: 'https://velki200agent.com/super-agent-list',
+  },
+};
 
 // SEO FAQ Data for Super Agent Page (All 12 Questions)
 const superFaqs = [
@@ -68,16 +75,8 @@ const superFaqs = [
 ];
 
 export default function SuperAgentListPage() {
-  const [query] = useState('');
-
-  const filteredAgents = SUPER_AGENTS.filter(agent => {
-    const q = query.trim().toLowerCase();
-    if (!q) return true;
-    return (
-      agent.name.toLowerCase().includes(q) ||
-      agent.code.toLowerCase().includes(q)
-    );
-  });
+  // যেহেতু সার্চ অপশন বন্ধ, তাই সরাসরি SUPER_AGENTS ব্যবহার করা হলো
+  const filteredAgents = SUPER_AGENTS;
 
   return (
     <>
@@ -93,6 +92,7 @@ export default function SuperAgentListPage() {
               <span>সুপার এজেন্ট লিস্ট</span>
             </nav>
 
+            {/* ২. শুধুমাত্র একটি H1 ট্যাগ */}
             <h1 className="page-title text-3xl">সুপার এজেন্ট লিস্ট বাংলাদেশ ২০২৬</h1>
           </div>
         </section>
@@ -137,7 +137,7 @@ export default function SuperAgentListPage() {
           </div>
         </section>
 
-        {/* FULL SEO CONTENT SECTION (WITH INTERNAL LINKS) */}
+        {/* ৩. FULL SEO CONTENT SECTION (WITH EXTENSIVE INTERNAL LINKS) */}
         <section className="section" id="seo-content">
           <div className="container">
             <div className="section-heading">
@@ -148,13 +148,13 @@ export default function SuperAgentListPage() {
             <article className="content-panel">
               <h3>Welcome to the Velki Super Agent Directory</h3>
               <p>
-                Welcome to Velki200Agent, an online directory for exploring Velki Super Agent information in Bangladesh. This page is designed to help visitors understand the Super Agent category, review available listing details and find relevant contact information where provided.
+                Welcome to <Link href="/" className="text-teal-400 font-medium hover:underline">Velki200Agent</Link>, an online directory for exploring Velki Super Agent information in Bangladesh. This page is designed to help visitors understand the Super Agent category, review available listing details and find relevant contact information where provided.
               </p>
               <p>
                 Searching for a Velki Super Agent List should involve more than finding a name or phone number. Visitors also need clear identification details, understandable listing categories and information about how to review a contact record before relying on it.
               </p>
               <p>
-                Our Super Agent directory page brings related information together in an organized format. You can explore available listings, understand the terminology used in agent directories and learn practical ways to check whether information is complete, consistent and current. Whether you are researching the Velki Super Agent category or comparing different directory records, this guide provides a starting point for navigating the available information.
+                Our Super Agent directory page brings related information together in an organized format. You can explore available listings, understand the terminology used in <Link href="/" className="text-teal-400 font-medium hover:underline">agent directories</Link> and learn practical ways to check whether information is complete, consistent and current. Whether you are researching the Velki Super Agent category or comparing different directory records, this guide provides a starting point for navigating the available information.
               </p>
 
               <h3>What Is a Velki Super Agent?</h3>
@@ -162,7 +162,7 @@ export default function SuperAgentListPage() {
                 A Velki Super Agent is a category term used in Velki-related agent directories. The exact responsibilities, authority and relationship of an individual to a service provider should be confirmed through appropriate reliable sources.
               </p>
               <p>
-                A directory label alone does not prove that a person is officially appointed, authorized or currently active. Visitors should distinguish between a category description and independently confirmed information.
+                A directory label alone does not prove that a person is officially appointed, authorized or currently active. Visitors should distinguish between a category description and independently confirmed information. You can also read our <Link href="/disclaimer" className="text-teal-400 font-medium hover:underline">Disclaimer</Link> for clarity.
               </p>
 
               <h3>Explore the Velki Super Agent List</h3>
@@ -178,7 +178,7 @@ export default function SuperAgentListPage() {
                 Visitors can use this page to explore the available Velki Super Agent information. When reviewing a listing, pay attention to its category, identification details, contact information and any published update date.
               </p>
               <p>
-                If the website provides a directory search or category filter, use it to narrow the available records. If a search feature is not available, browse the published listings manually.
+                If the website provides a directory search or category filter, use it to narrow the available records. If a search feature is not available, browse the published listings manually. You can also explore our <Link href="/sub-admin-list" className="text-teal-400 font-medium hover:underline">Sub Admin List</Link>.
               </p>
 
               <h3>Why Use a Dedicated Super Agent Page?</h3>
@@ -233,7 +233,7 @@ export default function SuperAgentListPage() {
                 <li>Compare the details with an appropriate independent information source.</li>
                 <li>Look for outdated phone numbers or inconsistent names.</li>
                 <li>Be cautious if different pages display conflicting contact information.</li>
-                <li>Avoid sharing passwords, one-time verification codes or sensitive account details.</li>
+                <li>Avoid sharing passwords, one-time verification codes or sensitive account details. Read our <Link href="/privacy-policy" className="text-teal-400 font-medium hover:underline">Privacy Policy</Link>.</li>
               </ul>
               <p>
                 A phone number is a contact method, not proof of identity. Confirm important details independently before making decisions based on a listing.
@@ -244,7 +244,7 @@ export default function SuperAgentListPage() {
                 Never share account passwords, private authentication codes or unnecessary personal information with someone simply because their details appear in an online directory.
               </p>
               <p>
-                Read privacy information before submitting personal details through a website or contact form. Use secure communication practices and avoid sending sensitive documents unless there is a clear, legitimate reason. You can read our <Link href="/privacy-policy" className="text-teal-400 font-medium hover:underline">Privacy Policy</Link> for more details.
+                Read privacy information before submitting personal details through a website or contact form. Use secure communication practices and avoid sending sensitive documents unless there is a clear, legitimate reason.
               </p>
 
               <h3>How to Verify a Velki Super Agent</h3>
@@ -272,13 +272,13 @@ export default function SuperAgentListPage() {
 
               <h3>Master Agent vs Super Agent: What Is the Difference?</h3>
               <p>
-                Master Agent and Super Agent are separate category terms used in agent directories. Visitors searching for the Velki Super Agent List should understand that a category label does not necessarily explain the full responsibilities or authority of an individual.
+                <Link href="/master-agent-list" className="text-teal-400 font-medium hover:underline">Master Agent</Link> and Super Agent are separate category terms used in agent directories. Visitors searching for the Velki Super Agent List should understand that a category label does not necessarily explain the full responsibilities or authority of an individual.
               </p>
               <p>
                 The exact distinction between these categories should be confirmed through reliable information from the relevant service provider. If you are researching the other category, visit the <Link href="/master-agent-list" className="text-teal-400 font-medium hover:underline">Velki Master Agent List page</Link> to explore its available information.
               </p>
               <p>
-                Keeping the two categories separate helps visitors navigate the directory and reduces confusion between different types of agent records.
+                Keeping the two categories separate helps visitors navigate the directory and reduces confusion between different types of agent records. For support, visit our <Link href="/customer-services" className="text-teal-400 font-medium hover:underline">Customer Services</Link> page.
               </p>
 
               <h3>How to Choose Which Super Agent Information to Review</h3>
@@ -305,9 +305,9 @@ export default function SuperAgentListPage() {
               <ul>
                 <li><strong>Organized Super Agent Category:</strong> A dedicated Super Agent page keeps category information separate from Master Agent records and makes it easier to browse relevant listings.</li>
                 <li><strong>Clear Listing Information:</strong> Descriptive fields and structured records help visitors understand what information is available and what still needs confirmation.</li>
-                <li><strong>Helpful Verification Resources:</strong> Guides about agent identification, contact consistency and information accuracy can help visitors review directory records more carefully.</li>
+                <li><strong>Helpful Verification Resources:</strong> Guides about agent identification, contact consistency and information accuracy can help visitors review directory records more carefully. Visit our <Link href="/blog" className="text-teal-400 font-medium hover:underline">Blog</Link> for more.</li>
                 <li><strong>Information Updates and Corrections:</strong> Directory information may change over time. Where a correction process is available, visitors can contact the website to report an incomplete, outdated or potentially incorrect listing.</li>
-                <li><strong>Easy Navigation:</strong> Clear headings, relevant internal links and mobile-friendly page design can make the directory easier to use across different devices.</li>
+                <li><strong>Easy Navigation:</strong> Clear headings, relevant internal links and mobile-friendly page design can make the directory easier to use across different devices. Go back to <Link href="/" className="text-teal-400 font-medium hover:underline">Home</Link>.</li>
               </ul>
 
               <h3>Reporting Incorrect or Outdated Super Agent Information</h3>
@@ -322,7 +322,7 @@ export default function SuperAgentListPage() {
                 <li>A reliable supporting source, if available.</li>
               </ul>
               <p>
-                Avoid submitting passwords, private verification codes or unnecessary personal documents. A submitted correction should be reviewed before the directory record is changed. A report does not automatically mean that the information is incorrect or that a replacement detail has been verified.
+                Avoid submitting passwords, private verification codes or unnecessary personal documents. A submitted correction should be reviewed before the directory record is changed. A report does not automatically mean that the information is incorrect or that a replacement detail has been verified. You can reach out via our <Link href="/contact" className="text-teal-400 font-medium hover:underline">Contact Page</Link>.
               </p>
 
               <h3>Velki Agent Guides and Helpful Resources</h3>
@@ -330,11 +330,11 @@ export default function SuperAgentListPage() {
               <ul>
                 <li><strong><Link href="/" className="text-teal-400 font-medium hover:underline">Velki Agent List Bangladesh</Link>:</strong> Explore the main agent directory and available categories.</li>
                 <li><strong><Link href="/master-agent-list" className="text-teal-400 font-medium hover:underline">Velki Master Agent List</Link>:</strong> Review the separate Master Agent category.</li>
+                <li><strong><Link href="/sub-admin-list" className="text-teal-400 font-medium hover:underline">Velki Sub Admin List</Link>:</strong> Explore the sub admin category.</li>
                 <li><strong>How to Verify a Velki Agent:</strong> Learn how to review identification and contact information.</li>
                 <li><strong>Velki Agent Information Guide:</strong> Understand common directory terms and listing details.</li>
                 <li><strong>Online Privacy Guide:</strong> Learn practical ways to protect personal information.</li>
                 <li><strong><Link href="/about" className="text-teal-400 font-medium hover:underline">About Velki200Agent</Link>:</strong> Understand the purpose and scope of this independent directory.</li>
-                <li><strong><Link href="/contact" className="text-teal-400 font-medium hover:underline">Contact Page</Link>:</strong> Find the appropriate channel for questions or listing corrections.</li>
               </ul>
             </article>
 
