@@ -127,46 +127,31 @@ const reviews = [
   },
 ];
 
-const faqs = [
+// English SEO FAQ
+const seoFaqs = [
   {
-    question: 'এই ওয়েবসাইটে কী ধরনের তথ্য পাওয়া যাবে?',
-    answer:
-      'ওয়েবসাইটে তালিকাভুক্ত ক্যাটাগরি, সংশ্লিষ্ট প্রোফাইলের তথ্য, যোগাযোগের বিবরণ এবং প্রয়োজনীয় গাইড পাওয়া যাবে। প্রকাশিত তথ্যের যথার্থতা ও বর্তমান অবস্থা যাচাই করে নেওয়া উচিত।',
+    question: 'What Is a Velki Agent List?',
+    answer: 'A Velki Agent List is an online directory-style collection of agent-related information. It may include different categories, displayed identification details, and available contact information.',
   },
   {
-    question: 'মাস্টার এজেন্ট লিস্ট কোথায় পাওয়া যাবে?',
-    answer:
-      'প্রধান মেনুর মাস্টার এজেন্ট লিস্ট থেকে সংশ্লিষ্ট ডিরেক্টরি পেজে যাওয়া যাবে। সেখানে প্রোফাইল ও প্রকাশিত তথ্য দেখা যাবে।',
+    question: 'Where Can I Find a Velki Agent List in Bangladesh?',
+    answer: 'You can explore the relevant directory categories on Velki200Agent. The website is designed to organize Master Agent, Super Agent, and other available agent-related information.',
   },
   {
-    question: 'সুপার এজেন্ট লিস্ট কীভাবে দেখব?',
-    answer:
-      'Navbar-এর সুপার এজেন্ট লিস্ট লিংকে ক্লিক করলে সংশ্লিষ্ট পেজ খুলবে। পেজটি পরবর্তী ধাপে আলাদা route হিসেবে তৈরি করা হবে।',
+    question: 'What Is a Velki Master Agent?',
+    answer: 'A Master Agent is a category used in the agent directory structure. Its actual responsibilities and authorization should be confirmed through appropriate sources.',
   },
   {
-    question: 'সাব অ্যাডমিন লিস্ট কোথায় থাকবে?',
-    answer:
-      'সাব অ্যাডমিন লিস্ট-এর জন্য আলাদা পেজ থাকবে। ওই পেজে প্রকাশ করা তথ্যের উৎস ও update-এর অবস্থা স্পষ্টভাবে দেখানো উচিত।',
+    question: 'What Is a Velki Super Agent?',
+    answer: 'A Super Agent is another agent classification displayed in relevant directory categories. Visitors should review the available information instead of assuming responsibilities based only on the category name.',
   },
   {
-    question: 'যোগাযোগের তথ্য কীভাবে যাচাই করব?',
-    answer:
-      'প্রকাশিত যোগাযোগের তথ্য সংশ্লিষ্ট পক্ষের অনুমোদিত উৎসের সঙ্গে মিলিয়ে নিন। কোনো নাম, পরিচয় বা নম্বর যাচাই করা না থাকলে সেটিকে যাচাইকৃত হিসেবে উপস্থাপন করা উচিত নয়।',
+    question: 'How Can I Verify Velki Agent Information?',
+    answer: 'Review identification details, compare available contact information, check listing update dates, and seek independent confirmation through appropriate sources.',
   },
   {
-    question: 'কাস্টমার সার্ভিসের সঙ্গে কীভাবে যোগাযোগ করব?',
-    answer:
-      'Navbar-এর WhatsApp CTA ব্যবহার করা যাবে, যদি configuration-এ একটি বৈধ ও অনুমোদিত যোগাযোগ নম্বর বসানো থাকে।',
-  },
-  {
-    question: 'এই ওয়েবসাইট মোবাইল থেকে ব্যবহার করা যাবে?',
-    answer:
-      'হ্যাঁ। ডিজাইনটি desktop, tablet ও mobile screen-এর জন্য responsive grid এবং mobile navigation ব্যবহার করে তৈরি করা হচ্ছে।',
-  },
-  {
-    question: 'ওয়েবসাইটে নতুন তথ্য বা সংশোধনের অনুরোধ কীভাবে জানাব?',
-    answer:
-      'যোগাযোগ পেজের মাধ্যমে সংশোধনের অনুরোধ জানানোর ব্যবস্থা রাখা যাবে। পরিবর্তন প্রকাশের আগে তথ্যের উৎস ও যথার্থতা যাচাই করা উচিত।',
+    question: 'Is Velki200Agent an Official Website?',
+    answer: 'Velki200Agent is an independent information directory and does not claim official affiliation or authorization unless such status is expressly documented. Visitors should consult the relevant platform\'s official channels for confirmation.',
   },
 ];
 
@@ -420,31 +405,53 @@ export default function Home() {
           <div className="container">
             <div className="section-heading">
               <p className="section-eyebrow">INFORMATION & GUIDES</p>
-              <h2 className="section-title">এজেন্ট ডিরেক্টরি সম্পর্কে বিস্তারিত</h2>
+              <h2 className="section-title">Velki Agent List Bangladesh – Directory 2026</h2>
             </div>
 
             <article className="content-panel">
-              <h3>মাস্টার এজেন্ট ও সুপার এজেন্ট লিস্ট</h3>
+              <h3>Welcome to Velki200Agent</h3>
               <p>
-                একটি সুসংগঠিত agent directory-তে প্রতিটি ক্যাটাগরির তথ্য আলাদা করে উপস্থাপন করা
-                গুরুত্বপূর্ণ। মাস্টার এজেন্ট লিস্ট, সুপার এজেন্ট লিস্ট এবং সাব অ্যাডমিন লিস্টের জন্য
-                পৃথক পেজ থাকলে ব্যবহারকারী সহজেই নির্দিষ্ট তালিকায় যেতে পারেন। প্রতিটি প্রোফাইলের
-                পরিচয়, তথ্যের উৎস এবং সর্বশেষ update-এর বিবরণ পরিষ্কারভাবে দেখানো উচিত।
+                Welcome to Velki200Agent, an online directory created to organize Velki agent information and provide helpful resources for visitors in Bangladesh. Our website focuses on agent categories, available contact information, directory listings, and educational guides to make information easier to explore.
+              </p>
+              <p>
+                Finding relevant agent information online can sometimes be confusing. Different websites may display different names, contact numbers, categories, and updates. Velki200Agent aims to simplify this process by bringing relevant directory information together in a structured and accessible format.
               </p>
 
-              <h3>তথ্য যাচাই ও হালনাগাদ</h3>
+              <h3>What Is Velki?</h3>
               <p>
-                কোনো directory-তে যোগাযোগের বিবরণ প্রকাশ করার আগে সংশ্লিষ্ট ব্যক্তির অনুমতি, পরিচয়
-                এবং তথ্যের সঠিকতা যাচাই করা প্রয়োজন। পুরোনো, ভুল বা অসম্পূর্ণ তথ্য শনাক্ত হলে সেটি
-                সংশোধন করা উচিত। যাচাই করা হয়নি এমন তথ্যকে verified হিসেবে চিহ্নিত করা উচিত নয়।
+                Velki is an online sports and gaming platform that provides information about different sports and online games. It covers popular sports such as cricket and football, as well as other sporting events and gaming topics. In simple words, Velki is a name connected with online sports and gaming services, bringing different sports activities and game-related information together in one convenient online place.
               </p>
 
-              <h3>ওয়েবসাইট ব্যবহার ও গোপনীয়তা</h3>
+              <h3>What Is a Velki Agent?</h3>
               <p>
-                ওয়েবসাইটের menu, mobile navigation এবং category links এমনভাবে সাজানো উচিত, যাতে
-                desktop ও mobile উভয় ডিভাইসেই সহজে ব্যবহার করা যায়। ব্যক্তিগত তথ্য শেয়ার করার আগে
-                প্রাপকের পরিচয় নিশ্চিত করুন এবং website-এর Privacy Policy ও Disclaimer পড়ে নিন।
+                A Velki agent is a person who assists users with different account services on the Velki platform, including account registration, deposits, withdrawals, and general support. Many users look for a Velki agent because they prefer a nearby contact who can reply quickly and communicate in their local language. A helpful agent can also explain basic account procedures, share relevant information, and guide users through common service-related questions whenever assistance is needed.
               </p>
+
+              <h3>Explore the Velki Agent List Bangladesh</h3>
+              <p>
+                The Velki Agent List Bangladesh is the main focus of our directory. This section is designed to organize available agent information into different categories so visitors can navigate the website more easily. Instead of searching through unrelated pages, visitors can explore dedicated directory sections and find information relevant to their search.
+              </p>
+
+              <h4>Our directory focuses on several important areas:</h4>
+              <ul>
+                <li>Agent category information</li>
+                <li>Master Agent & Super Agent listings</li>
+                <li>Available agent contact details</li>
+                <li>Agent identification information</li>
+                <li>Directory updates and corrections</li>
+                <li>Educational resources and guides</li>
+              </ul>
+
+              <h3>Why Explore Velki200Agent?</h3>
+              <p>
+                Velki200Agent focuses on presenting agent-related directory information in a structured and accessible format. Our website is designed around several useful features that support easier information discovery.
+              </p>
+              <ul>
+                <li><strong>Organized Agent Categories:</strong> Dedicated sections for Master Agent and Super Agent information help visitors navigate relevant directory categories.</li>
+                <li><strong>Easy Website Navigation:</strong> A clear page structure makes it easier to explore different listings and educational resources without unnecessary steps.</li>
+                <li><strong>Helpful Educational Resources:</strong> Our guides cover agent terminology, directory navigation, contact information, and practical methods for reviewing online listings.</li>
+                <li><strong>Visitor-Focused Information:</strong> We aim to present information in straightforward English so visitors can understand the directory structure and find relevant resources more easily.</li>
+              </ul>
             </article>
           </div>
         </section>
@@ -454,14 +461,14 @@ export default function Home() {
           <div className="container">
             <div className="section-heading">
               <p className="section-eyebrow">FAQ</p>
-              <h2 className="section-title">সচরাচর জিজ্ঞাসিত প্রশ্ন</h2>
+              <h2 className="section-title">Frequently Asked Questions</h2>
               <p className="section-description">
-                ওয়েবসাইট ব্যবহার, ক্যাটাগরি এবং তথ্য সম্পর্কে সাধারণ কিছু প্রশ্নের উত্তর।
+                Common questions about the Velki Agent List and our directory.
               </p>
             </div>
 
             <div className="faq-list">
-              {faqs.map(faq => (
+              {seoFaqs.map(faq => (
                 <details className="faq-item" key={faq.question}>
                   <summary>{faq.question}</summary>
                   <div className="faq-answer">{faq.answer}</div>
